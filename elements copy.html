@@ -1,0 +1,476 @@
+<!DOCTYPE HTML>
+<!--
+	Landed by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Profile - Msizi Mthimkhulu</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		
+		<!-- CUSTOM STYLES -->
+		<style>
+			/* 1. Layout fixes */
+			body {
+				background-color: #2c2e3b; 
+				padding: 40px; 
+				min-height: 100vh;
+				box-sizing: border-box;
+			}
+
+			#page-wrapper {
+				max-width: 1200px; 
+				margin: 0 auto; 
+				background-color: #1c1d26; 
+				box-shadow: 0 10px 50px rgba(0,0,0,0.6); 
+				border-radius: 6px;
+				overflow: hidden;
+				position: relative;
+				z-index: 1;
+			}
+
+			@media screen and (max-width: 736px) {
+				body { padding: 10px; }
+			}
+
+			/* --- MAIN LAYOUT STYLES --- */
+			h2.section-header {
+				font-size: 1.5em;
+				font-weight: 700;
+				letter-spacing: 2px;
+				text-transform: uppercase;
+				color: #ffffff;
+				margin-bottom: 1.5em;
+				margin-top: 0; 
+				border-bottom: 1px solid rgba(255,255,255,0.1);
+				padding-bottom: 0.5em;
+				display: inline-block;
+			}
+
+			/* Center helper */
+			.centered-content {
+				max-width: 800px;
+				margin: 0 auto;
+			}
+
+			/* Text */
+			.about-text {
+				color: #dcdcdc;
+				font-size: 1.1em;
+				line-height: 1.8;
+				font-weight: 300;
+				margin-bottom: 2em;
+			}
+
+			/* --- NEW "STORIES" STYLE CARD DESIGN --- */
+			.profile-card {
+				background-color: #252733; /* Dark card background */
+				border-radius: 4px;
+				overflow: hidden;
+				display: flex;
+				flex-direction: column;
+				height: 100%;
+				transition: transform 0.3s ease, box-shadow 0.3s ease;
+				box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+			}
+
+			.profile-card:hover {
+				transform: translateY(-5px);
+				box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+			}
+
+			.card-image-wrapper {
+				width: 100%;
+				height: 200px;
+				overflow: hidden;
+				background-color: #000;
+			}
+
+			.card-image-wrapper img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				object-position: center;
+				transition: transform 0.3s ease;
+			}
+			
+			.profile-card:hover .card-image-wrapper img {
+				transform: scale(1.05);
+			}
+
+			.card-content {
+				padding: 30px;
+				display: flex;
+				flex-direction: column;
+				flex-grow: 1;
+			}
+
+			.card-title {
+				color: #ffffff;
+				font-weight: 900;
+				font-size: 1.1em;
+				text-transform: uppercase;
+				letter-spacing: 1px;
+				margin-bottom: 20px;
+				line-height: 1.4;
+			}
+
+			.card-divider {
+				height: 1px;
+				background-color: rgba(255,255,255,0.15);
+				width: 100%;
+				margin-bottom: 25px;
+				margin-top: auto; /* Pushes button to bottom */
+			}
+
+			.card-btn {
+				display: flex;
+				align-items: center;
+				text-decoration: none;
+				color: #ffffff !important;
+				font-weight: 700;
+				font-size: 0.85em;
+				letter-spacing: 2px;
+				text-transform: uppercase;
+				border-bottom: none;
+			}
+
+			.card-icon {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				width: 35px;
+				height: 35px;
+				border: 1px solid rgba(255,255,255,0.3);
+				border-radius: 50%;
+				margin-right: 15px;
+				font-size: 14px;
+				transition: all 0.3s ease;
+			}
+
+			.card-btn:hover .card-icon {
+				background-color: #ffffff;
+				color: #252733;
+				border-color: #ffffff;
+			}
+
+			/* --- SONG LIST STYLES (Adapted for Grid) --- */
+			.song-item {
+				display: flex;
+				align-items: center;
+				background: #252733;
+				padding: 15px;
+				border-radius: 4px;
+				height: 100%;
+				transition: transform 0.2s ease;
+			}
+			
+			.song-item:hover {
+				transform: translateX(5px);
+				background: #2f3140;
+			}
+
+			.song-thumb {
+				width: 80px;
+				height: 80px;
+				border-radius: 8px;
+				overflow: hidden;
+				flex-shrink: 0;
+				margin-right: 20px;
+				box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+			}
+
+			.song-thumb img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				display: block;
+			}
+
+			.song-content h4 {
+				margin: 0;
+				color: #ffffff;
+				font-weight: 700;
+				font-size: 1em;
+				letter-spacing: 1px;
+				text-transform: uppercase;
+				line-height: 1.2;
+			}
+
+			.song-content span {
+				display: block;
+				color: #a0a0a0;
+				font-size: 0.9em;
+				margin-top: 5px;
+				font-weight: 300;
+			}
+
+			/* --- LIGHTBOX (POPUP) STYLES --- */
+			.gallery-img { cursor: pointer; }
+			.lightbox-modal {
+				display: none; 
+				position: fixed; 
+				z-index: 99999; 
+				padding-top: 50px; 
+				left: 0; top: 0; width: 100%; height: 100%; 
+				background-color: rgba(0,0,0,0.95); 
+			}
+			.lightbox-content {
+				margin: auto; display: block; width: auto; height: auto;
+				max-width: 90%; max-height: 85vh;
+			}
+			.close-btn {
+				position: absolute; top: 20px; right: 40px;
+				color: #fff; font-size: 50px; cursor: pointer;
+			}
+		</style>
+	</head>
+	<body class="is-preload">
+		<div id="page-wrapper">
+
+<!-- Header -->
+<header id="header">
+    <h1 id="logo"><a href="index.html">MNM <span style="font-weight:300; font-size:0.8em;">| Analyst</span></a></h1>
+    <nav id="nav">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li>
+                <a href="#">Portfolio</a>
+                <ul>
+                    <li><a href="no-sidebar.html">Power BI</a></li>
+                    <li><a href="left-sidebar.html">SQL</a></li>
+                    <li><a href="right-sidebar.html">Excel</a></li>
+					<li><a href="left-sidebar copy.html">Tableau</a></li>
+                    <li><a href="left-sidebar copy 2.html">Python</a></li>
+                </ul>
+				</li>
+            <li><a href="elements copy.html">Writings</a></li>
+            </li>
+            <li><a href="elements.html">Certificates</a></li>
+			
+            <!-- Icon Links for Socials -->
+            <li><a href="https://www.linkedin.com/in/msizi-mthimkhulu-3720bb23a"
+				 class="icon brands alt fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
+            <li><a href="https://github.com/msiziminxmtshali-jpg"
+				 class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+        </ul>
+    </nav>
+</header>
+
+			<!-- Main -->
+			<div id="main" class="wrapper style1">
+				<div class="container">
+					
+					<!-- TITLE SECTION (Full Width & Centered) -->
+					<header class="major" style="text-align: center; margin-bottom: 60px;">
+						<h2 style="font-size: 5em; font-weight: 900; color: #FFFFFF; line-height: 1.1; margin-bottom: 20px;">
+							Writings
+						</h2>
+						<p style="color: #FFFFFF !important; font-weight: bold; font-size: 1.5em; opacity: 1;">
+							Professional Qualifications & Achievements
+						</p>
+					</header>
+
+					<!-- CONTENT SECTION (CENTERED) -->
+					<div class="row gtr-150">
+						
+						<!-- SINGLE COLUMN (Centered Content) -->
+						<div class="col-12">
+							<div class="centered-content">
+								
+								<!-- ABOUT SECTION -->
+								<h2 class="section-header">About Me</h2>
+								<p class="about-text">
+									My artistic awakening began not in a classroom, but in the hallowed, resonant space of 
+									my local church. At the age of twelve, my world first expanded beyond mere sound into 
+									the realm of music, my fingers finding their first language on the cool, ivory keys 
+									of the piano.
+								</p>
+								<p class="about-text">
+									In the quiet spaces between the beats, another voice began to murmur—a quieter, more 
+									introspective one. I started to capture my feelings not with sticks and skins, but with 
+									pen and paper, weaving my inner world into rhythmic lines of verse.
+								</p>
+
+								<hr style="border-color: rgba(255,255,255,0.1); margin: 50px 0;" />
+
+								<!-- BOOKS SECTION -->
+								<h2 class="section-header">Books</h2>
+								
+								<div class="row gtr-uniform">
+									
+									<!-- Card 1 -->
+									<div class="col-6 col-12-small">
+										<div class="profile-card">
+											<div class="card-image-wrapper">
+												<img src="images/IT.png" alt="ALX Analytics" />
+											</div>
+											<div class="card-content">
+												<div class="card-title">IT WAS POINTING AT HIM!?</div>
+												<div class="card-divider"></div>
+												<a href="https://drive.google.com/file/d/1yYUmuY11eDssYqitrDtVOgN88Q-3YL1K/view?usp=sharing" class="card-btn">
+													<span class="card-icon"><i class="fas fa-chevron-right"></i></span>
+													Learn More
+												</a>
+											</div>
+										</div>
+									</div>
+
+									<!-- Card 2 -->
+									<div class="col-6 col-12-small">
+										<div class="profile-card">
+											<div class="card-image-wrapper">
+												<img src="images/ASS.png" alt="YLED Leadership" />
+											</div>
+											<div class="card-content">
+												<div class="card-title">I ONCE WAS IN LOVE</div>
+												<div class="card-divider"></div>
+												<a href="https://drive.google.com/file/d/1PryFFGMKcegx_ghND3-XGK4qAKR-Vlmt/view?usp=sharing" class="card-btn">
+													<span class="card-icon"><i class="fas fa-chevron-right"></i></span>
+													Learn More
+												</a>
+											</div>
+										</div>
+									</div>
+
+								</div>
+
+								<hr style="border-color: rgba(255,255,255,0.1); margin: 50px 0;" />
+
+								<!-- SONGS SECTION (Moved to Middle & Grid) -->
+								<h2 class="section-header">Songs</h2>
+
+								<div class="row gtr-uniform">
+									
+									<!-- Item 1 -->
+									<div class="col-6 col-12-small">
+										<div class="song-item">
+											<div class="song-thumb">
+												<img src="images/Broken.png" class="gallery-img" alt="Song 1">
+											</div>
+											<div class="song-content">
+												<h4>Broken wine glass</h4>
+												<span>ou stole my heart</span>
+											</div>
+										</div>
+									</div>
+
+									<!-- Item 2 -->
+									<div class="col-6 col-12-small">
+										<div class="song-item">
+											<div class="song-thumb">
+												<img src="images/Motion.png" class="gallery-img" alt="Song 2">
+											</div>
+											<div class="song-content">
+												<h4>Motion</h4>
+												<span>Struggles made</span>
+											</div>
+										</div>
+									</div>
+
+									<!-- Item 3 -->
+									<div class="col-6 col-12-small">
+										<div class="song-item">
+											<div class="song-thumb">
+												<img src="images/pic03.jpg" class="gallery-img" alt="Song 3">
+											</div>
+											<div class="song-content">
+												<h4>Die for you</h4>
+												<span>Cause I choose you</span>
+											</div>
+										</div>
+									</div>
+
+									<!-- Item 4 -->
+									<div class="col-6 col-12-small">
+										<div class="song-item">
+											<div class="song-thumb">
+												<img src="images/Element.png" class="gallery-img" alt="Song 4">
+											</div>
+											<div class="song-content">
+												<h4>Element</h4>
+												<span>My introductions</span>
+											</div>
+										</div>
+									</div>
+
+								</div>
+
+							</div> <!-- End Centered Content -->
+						</div> <!-- End Col-12 -->
+
+					</div> <!-- End Row -->
+
+				</div>
+			</div>
+
+						<!-- Five -->
+				<section id="five" class="wrapper style2 special fade">
+					<div class="container">
+						<header>
+							<h2>Thabk you for take your time viewing my work</h2>
+							<p>I am open to new oppoturnities  and collaboratibg in various projects even beyond data</p>
+						</header>
+						<form method="post" action="#" class="cta">
+							<div class="row gtr-uniform gtr-50">
+								<div class="col-8 col-12-xsmall"><input type="email" name="email" id="email" placeholder="Your Email Address" /></div>
+								<div class="col-4 col-12-xsmall"><input type="submit" value="Send an email" class="fit primary" /></div>
+							</div>
+						</form>
+					</div>
+				</section>
+
+			<!-- Footer -->
+			<footer id="footer" style="text-align: center; padding: 3em 0;">
+				<ul class="icons">
+					<li><a href="#" class="icon brands alt fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
+					<li><a href="#" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+					<li><a href="#" class="icon solid alt fa-envelope"><span class="label">Email</span></a></li>
+				</ul>
+				<ul class="copyright">
+					<li>&copy; Msizi Mthimkhulu</li>
+				</ul>
+			</footer>
+
+		</div>
+
+		<!-- LIGHTBOX OVERLAY -->
+		<div id="myLightbox" class="lightbox-modal">
+			<span class="close-btn" id="closeLightboxBtn">&times;</span>
+			<img class="lightbox-content" id="lightbox-img" src="">
+		</div>
+
+		<!-- Scripts -->
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/jquery.scrolly.min.js"></script>
+		<script src="assets/js/jquery.dropotron.min.js"></script>
+		<script src="assets/js/jquery.scrollex.min.js"></script>
+		<script src="assets/js/browser.min.js"></script>
+		<script src="assets/js/breakpoints.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		<script src="assets/js/main.js"></script>
+
+		<!-- Simple Lightbox Script -->
+		<script>
+			const galleryImages = document.querySelectorAll('.gallery-img');
+			const lightbox = document.getElementById('myLightbox');
+			const lightboxImg = document.getElementById('lightbox-img');
+			const closeBtn = document.getElementById('closeLightboxBtn');
+
+			galleryImages.forEach(img => {
+				img.addEventListener('click', () => {
+					lightbox.style.display = 'block';
+					lightboxImg.src = img.src;
+				});
+			});
+
+			closeBtn.onclick = () => lightbox.style.display = 'none';
+			window.onclick = (e) => { if (e.target == lightbox) lightbox.style.display = 'none'; }
+		</script>
+
+	</body>
+</html>
