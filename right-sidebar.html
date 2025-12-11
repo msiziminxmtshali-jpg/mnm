@@ -64,6 +64,50 @@
 				opacity: 0.9;
 				box-shadow: 0 0 15px rgba(228, 76, 101, 0.5);
 			}
+			
+			/* --- DROPDOWN STYLES --- */
+			.dropdown-section {
+				margin-bottom: 1em;
+				border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+			}
+			
+			.dropdown-header {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				padding: 1em 0;
+				cursor: pointer;
+				font-weight: 900;
+				color: #FFFFFF;
+				font-size: 1.3em;
+				transition: color 0.3s ease;
+			}
+			
+			.dropdown-header:hover {
+				color: #e44c65;
+			}
+			
+			.dropdown-header::after {
+				content: '+';
+				font-size: 1.5em;
+				transition: transform 0.3s ease;
+			}
+			
+			.dropdown-header.active::after {
+				content: '-';
+			}
+			
+			.dropdown-content {
+				max-height: 0;
+				overflow: hidden;
+				transition: max-height 0.5s ease;
+				padding: 0 1em;
+			}
+			
+			.dropdown-content.open {
+				max-height: 2000px; /* Adjust based on content */
+				padding-bottom: 1em;
+			}
 		</style>
 	</head>
 	<body class="is-preload">
@@ -150,8 +194,8 @@
 				<section id="five" class="wrapper style2 special fade">
 					<div class="container">
 						<header>
-							<h2>Thabk you for take your time viewing my work</h2>
-							<p>I am open to new oppoturnities  and collaboratibg in various projects even beyond data</p>
+							<h2>Thank you for taking your time viewing my work</h2>
+							<p>I am open to new opportunities and collaborating in various projects even beyond data</p>
 						</header>
 						<form method="post" action="#" class="cta">
 							<div class="row gtr-uniform gtr-50">
@@ -199,87 +243,90 @@
 			const projectData = {
 				maji: {
 					id: 'maji',
-					title: "Maji Ndogo (National Water Survey)",
+					title: "Maji Ndongo (Estimated Water Access 2000–2020)",
 					shortDesc: "A comprehensive analysis of national water sources, highlighting rural vs urban disparities and infrastructure failures.",
-					coverImage: "images/EXCLE.png", 
+					coverImage: "images/MJ 4.png", 
 					slideImages: [
-						"images/EXCLE.png", "images/EXCLE.png", "images/EXCLE.png", 
+						"images/POWER BI.png","images/MJ 4.png", "images/MJ 5.png", "images/MJ 6.png", 
+						"images/MJ 7.png", "images/MJ 1.png", "images/MJ 2.png", "images/MJ 3.png"
 					],
 					// THIS IS THE RESTORED FULL HTML CONTENT
 					fullHtml: `
-						<p style="color: #FFFFFF  !important; font-weight: 500; opacity: 1;">
-							<strong>Project Objectives:</strong><br />
-							The government of Maji Ndogo has collected data on water sources across the country. 
-							I was tasked to build a Power BI dashboard to address the following:
-						</p>
+						
+<!-- ADDITIONAL GLOBAL CONTEXT SECTIONS -->
 
-						<!-- Section 1 -->
-						<h4 style="font-weight: 900; color: #FFFFFF ; font-size: 1.3em;">1. The Core Problem: Water Source Breakdown</h4>
-						<p style="color: #FFFFFF  !important; font-weight: 500; opacity: 1;">
-							The analysis reveals that the population relies on five distinct water sources, each with specific failures:
-						</p>
-						<ul style="color: #FFFFFF  !important; font-weight: 500; opacity: 1;">
-							<li>
-								<strong>Rivers (Rural Crisis):</strong> A significant portion of the rural population relies on open rivers. 
-								The water quality is extremely poor, leading to high health risks.<br />
-								<em>Action: These people need groundwater wells drilled immediately.</em>
-							</li>
-							<li>
-								<strong>Shared Taps (Urban Crisis):</strong> While the water quality here is good, access is the issue. 
-								The data shows massive overcrowding.<br />
-								<em>Finding: 43% of the population relies on these, but wait times frequently exceed 120 minutes.<br />
-								Action: Install more taps near existing ones to reduce wait times to under 30 minutes.</em>
-							</li>
-							<li>
-								<strong>Wells (Contamination):</strong> Many wells are functionally working but pump unsafe water.<br />
-								<em>Finding: Distinct split between Clean, Biologically Contaminated, and Chemically Contaminated wells.<br />
-								Action: Install UV filters for biological issues and Reverse Osmosis (RO) filters for chemical issues.</em>
-							</li>
-							<li>
-								<strong>Tap in Home (Infrastructure Failure):</strong> A large percentage of homes have plumbing installed, but the taps are "Broken."<br />
-								<em>Action: These are the cheapest fixes; they simply require maintenance teams to repair the existing infrastructure.</em>
-							</li>
-						</ul>
+<!-- Section 1 – Regional Trends Intro -->
+<div class="dropdown-section">
+	<div class="dropdown-header">1. Global Context: Regional Trends & Disparities</div>
+	<div class="dropdown-content">
+		<p style="color: #FFFFFF !important; font-weight: 500; opacity: 1;">
+			<strong>Introduction (2000–2020 Data)</strong><br />
+			Access to safely managed drinking water is a fundamental human right. This analysis reviews two decades of data to understand global progress, population concentration, and persistent urban-rural disparities.
+		</p>
+	</div>
+</div>
 
-						<!-- Section 2 -->
-						<h4 style="font-weight: 900; color: #FFFFFF ; font-size: 1.3em;">2. Geographical Disparities (Province Analysis)</h4>
-						<p style="color: #FFFFFF  !important; font-weight: 500; opacity: 1;">
-							The dashboard highlights that the water crisis is not evenly distributed across the five provinces:
-							<br /><strong>Sokoto:</strong> This is the most critical province. It is largely rural, relies heavily on rivers/wells, and requires the largest share of the budget for drilling new wells.
-							<br /><strong>Kilimani:</strong> A more urban province. The main issue here is typically Shared Tap overcrowding and queue times.
-							<br /><strong>Amanzi:</strong> Often shows high rates of pollution in existing water sources, requiring a focus on filtration rather than drilling.
-						</p>
+<!-- Section 2 – Population & Variability -->
+<div class="dropdown-section">
+	<div class="dropdown-header">2. Findings: Population Distribution & Variability</div>
+	<div class="dropdown-content">
+		<p style="color: #FFFFFF !important; font-weight: 500; opacity: 1;">
+			<strong>Q1: Population Distribution</strong><br />
+			East Asia & Pacific and South Asia hold the majority population share. Improvements here have a disproportionate impact on global statistics.
+		</p>
+		<p style="color: #FFFFFF !important; font-weight: 500; opacity: 1;">
+			<strong>Q2: Variability in Access (Annual Rate of Change)</strong><br />
+			Progress is not uniform. While the global average is stable, there is a stark disparity between best-performing nations (massive leaps) and worst-performing areas (regressing).
+		</p>
+	</div>
+</div>
 
-						<!-- Section 3 -->
-						<h4 style="font-weight: 900; color: #FFFFFF ; font-size: 1.3em;">3. The "Gender Gap" in Water Collection</h4>
-						<p style="color: #FFFFFF  !important; font-weight: 500; opacity: 1;">
-							<strong>Finding:</strong> By analyzing the demographic data combined with queue times, the dashboard reveals that women and children bear the primary burden of water collection.<br />
-							<strong>Impact:</strong> The 2+ hour wait times at Shared Taps are directly removing women from the workforce and children from school.
-						</p>
+<!-- Section 3 – Trends & Regional Focus -->
+<div class="dropdown-section">
+	<div class="dropdown-header">3. Findings: Global Momentum & Regional Focus</div>
+	<div class="dropdown-content">
+		<p style="color: #FFFFFF !important; font-weight: 500; opacity: 1;">
+			<strong>Q3: Global Trend Direction</strong><br />
+			Overwhelmingly positive. Most data falls into positive progress (ARC > 0), specifically in rural areas that are finally catching up.
+		</p>
+		<p style="color: #FFFFFF !important; font-weight: 500; opacity: 1;">
+			<strong>Q4: Critical Zones</strong><br />
+			Sub-Saharan Africa and South Asia show the most intense activity (highest rates of change) because they started with the largest infrastructure gaps.
+		</p>
+	</div>
+</div>
 
-						<!-- Section 4 -->
-						<h4 style="font-weight: 900; color: #FFFFFF ; font-size: 1.3em;">4. Financial Summary (The Budget)</h4>
-						<p style="color: #FFFFFF  !important; font-weight: 500; opacity: 1;">
-							Using DAX measures to calculate the cost of fixing each specific source, the project concludes with the following requirements:<br />
-							<strong>Total Budget Required:</strong> Approximately $147 Million.<br />
-							<strong>Allocation:</strong> The most expensive line item is Drilling New Wells (replacing rivers), followed by installing RO Filters. The cheapest high-impact solution is repairing broken home taps.
-						</p>
+<!-- Section 4 – Urban-Rural Divide -->
+<div class="dropdown-section">
+	<div class="dropdown-header">4. The Urban-Rural Divide</div>
+	<div class="dropdown-content">
+		<p style="color: #FFFFFF !important; font-weight: 500; opacity: 1;">
+			<strong>Urban:</strong> High consistency and volume of "Full Access."<br />
+			<strong>Rural:</strong> Lower "Full Access" volume, but significant positive rates of change.<br />
+			<strong>Insight:</strong> Global efforts are successfully targeting underserved rural populations, though parity has not yet been reached.
+		</p>
+	</div>
+</div>
 
-						<!-- Section 5 -->
-						<h4 style="font-weight: 900; color: #FFFFFF ; font-size: 1.3em;">5. The "Corruption" Insight (Project Extension)</h4>
-						<p style="color: #FFFFFF  !important; font-weight: 500; opacity: 1;">
-							In the final stages of the project (involving SQL and Power BI validation), an audit analysis reveals:<br />
-							<strong>Discrepancies:</strong> There are records where the reported water source improvement does not match the actual engineer's log.<br />
-							<strong>The Culprit:</strong> Visuals point to specific officers (e.g., an employee frequently associated with high-cost, verified-false entries) suggesting embezzlement or data fraud.
-						</p>
+<!-- Section 5 – Conclusion -->
+<div class="dropdown-section">
+	<div class="dropdown-header">5. Global Analysis Conclusion</div>
+	<div class="dropdown-content">
+		<ul style="color: #FFFFFF !important; font-weight: 500; opacity: 1;">
+			<li><strong>Global Momentum:</strong> Majority of the world shows positive Annual Rate of Change.</li>
+			<li><strong>The Battleground is Rural:</strong> Largest disparities, but also the most aggressive positive changes.</li>
+			<li><strong>Regional Focus:</strong> Success depends on Sub-Saharan Africa and South Asia.</li>
+		</ul>
+	</div>
+</div>
 					`
 				},
 				survey: {
     id: 'survey',
     title: "Report: Data Professional Survey Analysis",
     shortDesc: "Comprehensive Breakdown of Workforce Demographics, Sentiment, and Compensation.",
-    coverImage: "images/EXCLE.png", 
-    slideImages: ["images/EXCLE.png", "images/EXCLE.png", "images/EXCLE.png", ],
+    coverImage: "images/D1  (1).png",
+    slideImages: ["images/POWER BI.png", "images/D1  (1).png", "images/D1  (2).png"],
     fullHtml: `
         <p style="color: #FFFFFF !important; font-weight: 500; opacity: 1;">
             <strong>Date:</strong> November 2, 2025<br />
@@ -287,70 +334,105 @@
             <strong>Data Source:</strong> Survey of 630 Data Professionals
         </p>
 
-        <h4 style="font-weight: 900; color: #FFFFFF; font-size: 1.3em;">1. Executive Summary</h4>
-        <p style="color: #FFFFFF !important; font-weight: 500; opacity: 1;">
-            This report analyzes responses from 630 data professionals to determine the current state of the industry. The findings indicate a workforce that is young (avg. age ~30), highly educated, and skilled predominantly in Python.<br /><br />
-            However, a significant disparity exists between job duties and compensation satisfaction. While job satisfaction is moderate, satisfaction with salary is critically low (4.27/10). Retention strategies for this demographic must prioritize compensation adjustments and remote work flexibility.
-        </p>
+        <!-- Section 1 -->
+        <div class="dropdown-section">
+            <div class="dropdown-header">1. Executive Summary</div>
+            <div class="dropdown-content">
+                <p style="color: #FFFFFF !important; font-weight: 500; opacity: 1;">
+                    This report analyzes responses from 630 data professionals to determine the current state of the industry. The findings indicate a workforce that is young (avg. age ~30), highly educated, and skilled predominantly in Python.<br /><br />
+                    However, a significant disparity exists between job duties and compensation satisfaction. While job satisfaction is moderate, satisfaction with salary is critically low (4.27/10). Retention strategies for this demographic must prioritize compensation adjustments and remote work flexibility.
+                </p>
+            </div>
+        </div>
 
-        <h4 style="font-weight: 900; color: #FFFFFF; font-size: 1.3em;">2. Respondent Profile & Demographics</h4>
-        <ul style="color: #FFFFFF !important; font-weight: 500; opacity: 1;">
-            <li><strong>Sample Size:</strong> 630 Respondents.</li>
-            <li><strong>Average Age:</strong> 29.9 years old.</li>
-            <li><strong>Geography:</strong> The majority of respondents are based in the United States, followed by India, the United Kingdom, and Canada.</li>
-            <li><strong>Education:</strong> The workforce is highly credentialed. The vast majority hold a Bachelor’s or Master’s degree, indicating a high barrier to entry for knowledge-based roles.</li>
-        </ul>
+        <!-- Section 2 -->
+        <div class="dropdown-section">
+            <div class="dropdown-header">2. Respondent Profile & Demographics</div>
+            <div class="dropdown-content">
+                <ul style="color: #FFFFFF !important; font-weight: 500; opacity: 1;">
+                    <li><strong>Sample Size:</strong> 630 Respondents.</li>
+                    <li><strong>Average Age:</strong> 29.9 years old.</li>
+                    <li><strong>Geography:</strong> The majority of respondents are based in the United States, followed by India, the United Kingdom, and Canada.</li>
+                    <li><strong>Education:</strong> The workforce is highly credentialed. The vast majority hold a Bachelor's or Master's degree, indicating a high barrier to entry for knowledge-based roles.</li>
+                </ul>
+            </div>
+        </div>
 
-        <h4 style="font-weight: 900; color: #FFFFFF; font-size: 1.3em;">3. Workforce Sentiment & Satisfaction</h4>
-        <p style="color: #FFFFFF !important; font-weight: 500; opacity: 1;">
-            The survey measured employee sentiment on a scale of 1–10. The results highlight a specific pain point regarding remuneration.
-        </p>
-        <p style="color: #FFFFFF !important; font-weight: 500; opacity: 1; margin-left: 20px;">
-            <strong>Average Happiness with Salary:</strong> 4.27 — 🔴 Critical Concern<br />
-            <strong>Average Happiness with Job:</strong> 5.74 — 🟡 Moderate
-        </p>
-        <p style="color: #FFFFFF !important; font-weight: 500; opacity: 1;">
-            <strong>Insight:</strong> Professionals enjoy the work itself significantly more than they enjoy the pay. This gap suggests a high risk of turnover if competitors offer better compensation packages.
-        </p>
+        <!-- Section 3 -->
+        <div class="dropdown-section">
+            <div class="dropdown-header">3. Workforce Sentiment & Satisfaction</div>
+            <div class="dropdown-content">
+                <p style="color: #FFFFFF !important; font-weight: 500; opacity: 1;">
+                    The survey measured employee sentiment on a scale of 1–10. The results highlight a specific pain point regarding remuneration.
+                </p>
+                <p style="color: #FFFFFF !important; font-weight: 500; opacity: 1; margin-left: 20px;">
+                    <strong>Average Happiness with Salary:</strong> 4.27 — 🔴 Critical Concern<br />
+                    <strong>Average Happiness with Job:</strong> 5.74 — 🟡 Moderate
+                </p>
+                <p style="color: #FFFFFF !important; font-weight: 500; opacity: 1;">
+                    <strong>Insight:</strong> Professionals enjoy the work itself significantly more than they enjoy the pay. This gap suggests a high risk of turnover if competitors offer better compensation packages.
+                </p>
+            </div>
+        </div>
 
-        <h4 style="font-weight: 900; color: #FFFFFF; font-size: 1.3em;">4. Compensation Analysis by Role</h4>
-        <p style="color: #FFFFFF !important; font-weight: 500; opacity: 1;">
-            Salary data reveals a distinct hierarchy based on role complexity and technical specialization.
-        </p>
-        <ul style="color: #FFFFFF !important; font-weight: 500; opacity: 1;">
-            <li><strong>Top Tier:</strong> Data Scientists are the highest earners, with an average salary approaching $90,000.</li>
-            <li><strong>Mid Tier:</strong> Data Engineers and Data Architects average between $60,000 – $65,000.</li>
-            <li><strong>Entry/Support Tier:</strong> Database Developers, Analysts, and those in "Student/Looking" phases report earnings in the $40,000 – $55,000 range.</li>
-        </ul>
-        <p style="color: #FFFFFF !important; font-weight: 500; opacity: 1;">
-            (Note: A gender breakdown of salary was conducted, showing a slight variance in average earnings, with detailed figures available in the dashboard visuals.)
-        </p>
+        <!-- Section 4 -->
+        <div class="dropdown-section">
+            <div class="dropdown-header">4. Compensation Analysis by Role</div>
+            <div class="dropdown-content">
+                <p style="color: #FFFFFF !important; font-weight: 500; opacity: 1;">
+                    Salary data reveals a distinct hierarchy based on role complexity and technical specialization.
+                </p>
+                <ul style="color: #FFFFFF !important; font-weight: 500; opacity: 1;">
+                    <li><strong>Top Tier:</strong> Data Scientists are the highest earners, with an average salary approaching $90,000.</li>
+                    <li><strong>Mid Tier:</strong> Data Engineers and Data Architects average between $60,000 – $65,000.</li>
+                    <li><strong>Entry/Support Tier:</strong> Database Developers, Analysts, and those in "Student/Looking" phases report earnings in the $40,000 – $55,000 range.</li>
+                </ul>
+                <p style="color: #FFFFFF !important; font-weight: 500; opacity: 1;">
+                    (Note: A gender breakdown of salary was conducted, showing a slight variance in average earnings, with detailed figures available in the dashboard visuals.)
+                </p>
+            </div>
+        </div>
 
-        <h4 style="font-weight: 900; color: #FFFFFF; font-size: 1.3em;">5. Technical Skills & Industry Trends</h4>
-        <ul style="color: #FFFFFF !important; font-weight: 500; opacity: 1;">
-            <li><strong>Programming Languages:</strong> Python is the dominant language across almost all sectors (Tech, Finance, Healthcare, Education).</li>
-            <li><strong>Sector Variance:</strong> While Python leads, the "Construction" and "Other" sectors show a higher reliance on alternative languages, likely due to legacy systems or niche software requirements.</li>
-        </ul>
+        <!-- Section 5 -->
+        <div class="dropdown-section">
+            <div class="dropdown-header">5. Technical Skills & Industry Trends</div>
+            <div class="dropdown-content">
+                <ul style="color: #FFFFFF !important; font-weight: 500; opacity: 1;">
+                    <li><strong>Programming Languages:</strong> Python is the dominant language across almost all sectors (Tech, Finance, Healthcare, Education).</li>
+                    <li><strong>Sector Variance:</strong> While Python leads, the "Construction" and "Other" sectors show a higher reliance on alternative languages, likely due to legacy systems or niche software requirements.</li>
+                </ul>
+            </div>
+        </div>
 
-        <h4 style="font-weight: 900; color: #FFFFFF; font-size: 1.3em;">6. Future Priorities & Retention Drivers</h4>
-        <p style="color: #FFFFFF !important; font-weight: 500; opacity: 1;">
-            When asked what they prioritize for their next job search, respondents provided clear guidance on what drives retention. The priorities are consistent across genders:
-        </p>
-        <ul style="color: #FFFFFF !important; font-weight: 500; opacity: 1;">
-            <li><strong>Better Salary:</strong> The #1 priority, correlating directly with the low salary satisfaction score.</li>
-            <li><strong>Remote Work:</strong> A strong second preference, indicating that flexibility is now a requirement, not a perk.</li>
-            <li><strong>Good Culture:</strong> Ranked third, emphasizing the need for a supportive work environment.</li>
-        </ul>
+        <!-- Section 6 -->
+        <div class="dropdown-section">
+            <div class="dropdown-header">6. Future Priorities & Retention Drivers</div>
+            <div class="dropdown-content">
+                <p style="color: #FFFFFF !important; font-weight: 500; opacity: 1;">
+                    When asked what they prioritize for their next job search, respondents provided clear guidance on what drives retention. The priorities are consistent across genders:
+                </p>
+                <ul style="color: #FFFFFF !important; font-weight: 500; opacity: 1;">
+                    <li><strong>Better Salary:</strong> The #1 priority, correlating directly with the low salary satisfaction score.</li>
+                    <li><strong>Remote Work:</strong> A strong second preference, indicating that flexibility is now a requirement, not a perk.</li>
+                    <li><strong>Good Culture:</strong> Ranked third, emphasizing the need for a supportive work environment.</li>
+                </ul>
+            </div>
+        </div>
 
-        <h4 style="font-weight: 900; color: #FFFFFF; font-size: 1.3em;">7. Strategic Recommendations</h4>
-        <p style="color: #FFFFFF !important; font-weight: 500; opacity: 1;">
-            Based on this data, organizations looking to hire or retain data professionals should:
-        </p>
-        <ul style="color: #FFFFFF !important; font-weight: 500; opacity: 1;">
-            <li><strong>Review Compensation Bands:</strong> Immediate attention is needed for Data Analysts and Database Developers to improve the 4.27/10 salary satisfaction score.</li>
-            <li><strong>Standardize Python Training:</strong> As Python is the industry standard, ensuring all team members are proficient will improve cross-sector mobility and efficiency.</li>
-            <li><strong>Offer Flexibility:</strong> To compete for top-tier Data Scientists and Engineers, "Remote Work" options should be highlighted in recruitment efforts.</li>
-        </ul>
+        <!-- Section 7 -->
+        <div class="dropdown-section">
+            <div class="dropdown-header">7. Strategic Recommendations</div>
+            <div class="dropdown-content">
+                <p style="color: #FFFFFF !important; font-weight: 500; opacity: 1;">
+                    Based on this data, organizations looking to hire or retain data professionals should:
+                </p>
+                <ul style="color: #FFFFFF !important; font-weight: 500; opacity: 1;">
+                    <li><strong>Review Compensation Bands:</strong> Immediate attention is needed for Data Analysts and Database Developers to improve the 4.27/10 salary satisfaction score.</li>
+                    <li><strong>Standardize Python Training:</strong> As Python is the industry standard, ensuring all team members are proficient will improve cross-sector mobility and efficiency.</li>
+                    <li><strong>Offer Flexibility:</strong> To compete for top-tier Data Scientists and Engineers, "Remote Work" options should be highlighted in recruitment efforts.</li>
+                </ul>
+            </div>
+        </div>
     `
 }
 			};
@@ -363,6 +445,7 @@
 			// --- 2. INITIALIZATION ---
 			document.addEventListener("DOMContentLoaded", function() {
 				renderViews();
+				setupDropdowns();
 			});
 
 			// --- 3. RENDER FUNCTION ---
@@ -418,6 +501,9 @@
 				slideIndex = 0;
 				clearTimeout(slideTimer); // Stop old timer
 				showSlides();
+				
+				// 4. Setup dropdown functionality
+				setupDropdowns();
 			}
 
 			// --- 4. SWAP LOGIC ---
@@ -462,6 +548,22 @@
 				}
 				
 				slideTimer = setTimeout(showSlides, 4000); 
+			}
+			
+			// --- 6. DROPDOWN LOGIC ---
+			function setupDropdowns() {
+				const dropdownHeaders = document.querySelectorAll('.dropdown-header');
+				
+				dropdownHeaders.forEach(header => {
+					header.addEventListener('click', function() {
+						// Toggle active class on header
+						this.classList.toggle('active');
+						
+						// Toggle open class on content
+						const content = this.nextElementSibling;
+						content.classList.toggle('open');
+					});
+				});
 			}
 		</script>
 
